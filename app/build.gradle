@@ -1,7 +1,13 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.31'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
 }
+
+apply plugin: 'kotlin-android'
+
 
 android {
     compileSdk 32
@@ -29,6 +35,15 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildTypes.each {
+        it.buildConfigField 'String', 'SERVER_HOST', server_host
+    }
+
+    buildFeatures{
+        dataBinding = true
+
+    }
 }
 
 dependencies {
@@ -37,6 +52,48 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.databinding:databinding-runtime:7.2.1'
+
+    //Retrofit
+   // implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+  //  implementation 'com.google.code.gson:gson:2.8.6'
+   // implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+   // implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+
+    var version_moshi = "1.13.0"
+    implementation "com.squareup.moshi:moshi:$version_moshi"
+    implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+
+    var version_retrofit = "2.9.0"
+
+    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
+
+    // ViewModel
+    def lifecycle_version = "2.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    // LiveData
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.2.0'
+
+
+    // Room
+    implementation "androidx.room:room-runtime:+"
+    kapt "androidx.room:room-compiler:+"
+    implementation "androidx.room:room-ktx:+"
+
+    // Navigation
+
+    def nav_version = "2.3.0-beta01"
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+
+
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

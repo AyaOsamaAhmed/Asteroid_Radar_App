@@ -1,7 +1,8 @@
-package com.aya.asteroidradarapp
+package com.aya.asteroidradarapp.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.aya.asteroidradarapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
