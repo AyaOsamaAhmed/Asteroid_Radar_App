@@ -43,7 +43,7 @@ class HomeFragment : Fragment() , onClickDetails {
 
 
 
-        viewModel.requestLastNewsLiveData.observe(viewLifecycleOwner, Observer {
+        viewModel.requestDataLiveData.observe(viewLifecycleOwner, Observer {
             val data = it as MainResponse
             adapter = NewsAdapter(this)
          //   adapter.submitList(data.articles)

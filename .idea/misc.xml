@@ -7,6 +7,15 @@
         <entry key="..\:/projects/AsteroidRadarApp/app/src/main/res/layout/details_fragment.xml" value="0.2" />
         <entry key="..\:/projects/AsteroidRadarApp/app/src/main/res/layout/home_fragment.xml" value="0.2" />
         <entry key="..\:/projects/AsteroidRadarApp/app/src/main/res/layout/news_item.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/draw_border_gray_medium_white.xml" value="0.2295" />
+        <entry key="app/src/main/res/drawable/ic_happy.xml" value="0.2295" />
+        <entry key="app/src/main/res/drawable/ic_happy_selected.xml" value="0.2295" />
+        <entry key="app/src/main/res/drawable/ic_sad.xml" value="0.2295" />
+        <entry key="app/src/main/res/drawable/ic_sad_selected.xml" value="0.2295" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.18177083333333333" />
+        <entry key="app/src/main/res/layout/details_fragment.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/home_fragment.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/news_item.xml" value="0.35625" />
       </map>
     </option>
   </component>
