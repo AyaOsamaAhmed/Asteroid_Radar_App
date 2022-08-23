@@ -11,6 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.aya.asteroidradarapp.R
 import com.aya.asteroidradarapp.databinding.HomeFragmentBinding
 import com.aya.asteroidradarapp.domain.model.DetectedModel
+import com.aya.asteroidradarapp.domain.response.FeedResponse
 import com.aya.asteroidradarapp.domain.response.MainResponse
 import com.aya.asteroidradarapp.ui.activity.MainActivity
 import com.aya.asteroidradarapp.ui.adapter.NewsAdapter
@@ -50,15 +51,21 @@ class HomeFragment : Fragment() , onClickDetails {
             binding.url = data.url
             binding.title.text = data.title
             val calendar = Calendar.getInstance()
-            val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
-            sdf.parse(data.date)
+            calendar.add(Calendar.DAY_OF_YEAR, 7)
+            val formatter = SimpleDateFormat("yyyy-MM-dd")
 
-          //  viewModel.feedData(data.date,date.time)
+            val format = formatter.format(calendar.time)
+            viewModel.feedData(data.date,format)
           //  adapter = NewsAdapter(this)
          //   adapter.submitList(data.articles)
           //  binding.recyclerNews.adapter = adapter
         })
 
+        viewModel.requestFeedDataLiveData.observe(viewLifecycleOwner, Observer {
+            val data = it as FeedResponse
+
+
+        })
 
         return binding.root
     }

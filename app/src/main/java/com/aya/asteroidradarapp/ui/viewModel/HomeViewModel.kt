@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 class HomeViewModel : ViewModel() {
 
     var requestDataLiveData = MutableLiveData<Any>()
-
+    var requestFeedDataLiveData = MutableLiveData<Any>()
 
     init {
 
@@ -27,7 +27,7 @@ class HomeViewModel : ViewModel() {
 
     fun feedData( start_date: String, end_date: String){
         viewModelScope.launch(Dispatchers.IO ) {
-            requestDataLiveData.postValue(MainServicesImpl.getDataFeed(start_date,end_date,Constant.API_KEY))
+            requestFeedDataLiveData.postValue(MainServicesImpl.getDataFeed(start_date,end_date,Constant.API_KEY))
         }
     }
 
