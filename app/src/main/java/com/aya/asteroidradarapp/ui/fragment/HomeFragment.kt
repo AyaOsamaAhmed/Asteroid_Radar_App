@@ -16,6 +16,8 @@ import com.aya.asteroidradarapp.ui.activity.MainActivity
 import com.aya.asteroidradarapp.ui.adapter.NewsAdapter
 import com.aya.asteroidradarapp.ui.interfaces.onClickDetails
 import com.aya.asteroidradarapp.ui.viewModel.HomeViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class HomeFragment : Fragment() , onClickDetails {
@@ -45,7 +47,14 @@ class HomeFragment : Fragment() , onClickDetails {
 
         viewModel.requestDataLiveData.observe(viewLifecycleOwner, Observer {
             val data = it as MainResponse
-            adapter = NewsAdapter(this)
+            binding.url = data.url
+            binding.title.text = data.title
+            val calendar = Calendar.getInstance()
+            val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
+            sdf.parse(data.date)
+
+          //  viewModel.feedData(data.date,date.time)
+          //  adapter = NewsAdapter(this)
          //   adapter.submitList(data.articles)
           //  binding.recyclerNews.adapter = adapter
         })

@@ -18,7 +18,7 @@ object ExtensionView {
 
     @JvmStatic
     @BindingAdapter("app:bindImgUrl", "app:bindProgressItem")
-     fun setGlideImageUrl( image: ImageView,url: String, progressBar: ProgressBar?){
+     fun setGlideImageUrl( image: ImageView,url: String?, progressBar: ProgressBar?){
         Glide.with(image.context)
             .load(url)
             .listener(object : RequestListener<Drawable> {
